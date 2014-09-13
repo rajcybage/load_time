@@ -1,0 +1,27 @@
+<%= form_for(@url) do |f| %>
+  <% if @url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@url.errors.count, "error") %> prohibited this url from being saved:</h2>
+
+      <ul>
+      <% @url.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url_name, "Give the URL to find it load time" %><br />
+    <%= f.text_field :url_name %>
+  </div>
+  <div class="field">
+    <%= f.label :threshold_value, "Give the threshold value of the url in seconds" %><br />
+    <%= f.text_field :threshold_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
